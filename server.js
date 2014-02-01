@@ -7,7 +7,7 @@ const
 
 var 
   express = require("express"),
-  newrelic = require("newrelic"),
+  //newrelic = require("newrelic"),
   config = require("./config.json"),
   Scraper = require("./scraper"),
   cron = require('./cron')(),
