@@ -1,0 +1,20 @@
+.box__detail {
+	float: left;
+	text-align: left;
+	word-wrap: break-word;
+	word-break: break-word;
+	display: inline-block;
+	margin-top: 10px;
+}
+.box__detail span,
+.box__detail strong {
+	color: $bgBoxTextColor;
+} 
+.box__detail span {
+	display: block;
+}
+@media only screen and (min-width : 440px) {
+	.box__detail {
+		width: 400px;
+	}
+}

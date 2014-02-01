@@ -1,0 +1,24 @@
+{
+	"site": {
+		"title": "Node Web Modules"
+	, "subtitle": "A collection of web frameworks for Node.js"
+	, "author": "Caio Ribeiro Pereira"
+	, "author_google_plus": "https://plus.google.com/106082169903180828657"
+	, "author_twitter": "crp_underground"
+	, "main_image": "/images/main.png"
+	, "logo_image": "/images/logo.png"
+	, "google_web_master": "lu9VieZDw-NqM5jiuHwAKInllWa8gPNBoNUe1xDnDjE"
+	, "google_analytics": "UA-42921477-1"
+	},
+	"static": {
+		"maxAge": 3600000
+	},
+	"view": "ejs",
+	"gzip": {
+		"level": 9
+	, "memLevel": 9
+	},
+	"redis": {
+		"no_ready_check": true
+	}
+}

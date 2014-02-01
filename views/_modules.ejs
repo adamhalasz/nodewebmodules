@@ -1,0 +1,53 @@
+<% modules.forEach(function(repo, index) { %>
+	<section class="box">
+		<header class="box__header js-box-module-header">
+			<h1><%=: repo.name | capitalize %></h1>
+		</header>
+		<div class="box__main js-box-module-main">
+			<section class="box__content">
+				<figure class="box__figure">
+					<a href="<%= repo.site %>" target="_blank">
+						<img src="images/<%= repo.name %>.png" class="box__image" width="220" height="160">
+					</a>
+				</figure>
+				<article class="box__detail">
+					<span><%= repo.description %></span>
+					<span>
+						<strong>Author: </strong>
+						<a href="https://npmjs.org/~<%= repo.author %>" target="_blank"><%=: repo.author | capitalize %></a>
+					</span>
+					<span>
+						<strong>Version: </strong>
+						<%= repo.version %>
+					</span>
+					<span>
+						<strong>Watchers: </strong>
+						<%= repo.watchers %>
+					</span>
+					<span>
+						<strong>Since: </strong>
+						<%= repo.created_at %>
+					</span>
+					<span>
+						<strong>Forks: </strong>
+						<%= repo.forks %>
+					</span>
+					<span>
+						<strong>Open issues: </strong>
+						<%= repo.issues %>
+					</span>
+					<span>
+						<strong>Install: </strong>
+						<span class="box__destaq">npm install <%= repo.name %></span>
+				</article>
+			</section>
+			<aside class="box__aside">
+				<% if (repo.site) { %>
+					<a href="<%= repo.site %>" class="box__button" target="_blank">site</a>
+				<% } %>
+				<a href="<%= repo.gh_url %>" class="box__button" target="_blank">github</a>
+				<a href="https://npmjs.org/package/<%= repo.name %>" class="box__button" target="_blank">npm</a>
+			</aside>
+		</div>
+	</section>
+<% }) %>
