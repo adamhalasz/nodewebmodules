@@ -30,7 +30,7 @@ Only web modules for node.js like MVC, Micro, Real-time and Rest frameworks will
 
 ## About the author
 
-Caio Ribeiro Pereira <caio.ribeiro.pereira@gmail.com>
+Caio Ribeiro Pereira <http://crpwebdev.com>
 
 Twitter: <http://twitter.com/crp_underground>
 
