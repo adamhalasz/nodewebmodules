@@ -5,7 +5,6 @@ var
 	level = require('level'),
 	path = require('path'),
 	url = require('url'),
-	thunkify = require('thunkify'),
 	GithubApi = require('github'),
 	deleteStream = require('level-delete-stream'),
 	modules = require('./modules.json'),
@@ -15,8 +14,6 @@ var
 exports.start =  function() {
 	var 
 		github = new GithubApi({version: "3.0.0", timeout: 10000}),
-		npmGet = thunkify(request.get),
-		ghGet = thunkify(github.repos.get),
 		dbKeyStream = db.createKeyStream()
 	;
 	
@@ -34,28 +31,29 @@ exports.start =  function() {
 				npmModuleUrl = NPM + moduleName + '/latest'
 			;
 			// get github module data
-			ghGet({user: ghUser, repo: ghRepo}, function(err, ghData) {
+			github.repos.get({user: ghUser, repo: ghRepo}, function(err, ghData) {
 				if (err) { console.log('Error: %s', err); return; }		
-				console.log("GH %s: %j", ghModuleName, ghData);
+				console.log("GH %s: %j\n===============\n", ghModuleName, ghData);
 
-				npmGet({url: npmModuleUrl, json: true}, function(err, res, npmData) {
+				request.get({url: npmModuleUrl, json: true}, function(err, res, npmData) {
 					if (err) { console.log('Error: %s', err); return; }
 					console.log("NPM %s: %j", npmModuleUrl, npmData);
 				
+					var key = "nvm_" + ghData.watchers;
 					var moduleData = {
-						name: npmModuleName,
+						name: npmData.name,
 						gh_url: ghData.html_url,
 						version: npmData.version,
 						site: ghData.homepage ? url.resolve('http://', ghData.homepage) : '',
 						created_at: moment(ghData.created_at).fromNow(),
-						author: npmData.author.name,
+						author: npmData.author.name || npmData._npmUser.name,
 						forks: ghData.forks_count,
 						watchers: ghData.watchers,
 						issues: ghData.open_issues,
 						description: ghData.description
 					};
 
-					db.put(ghData.watchers, moduleData, function(err) {
+					db.put(key, moduleData, function(err) {
 						if (err) { console.log('Error: %s', err); return; }
 						console.log("\nModule Data: %j\n-------------\n", moduleData);
 					});				
@@ -66,13 +64,12 @@ exports.start =  function() {
 };
 
 exports.list = function(callback) {
-	var data = [];
+	var streamData = [];
 	var stream = db.createValueStream();
-	stream.on('data', function(err, result) {
-		console.log(result);
-		data.push(result);
+	stream.on('data', function(result) {
+		streamData.push(result);
 	});
 	stream.on('end', function(err) {
-		return callback(err, data);
+		return callback(err, streamData);
 	});
 };

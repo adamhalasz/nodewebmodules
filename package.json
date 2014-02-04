@@ -23,7 +23,6 @@
     "github": "~0.1.x",
     "newrelic": "~1.2.x",
     "level": "~0.18.x",
-    "thunkify": "~0.0.x",
     "level-delete-stream": "~0.0.x"
   },
   "devDependencies": {

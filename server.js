@@ -25,7 +25,6 @@ app.use(express.static(PUBLIC, config.static));
 
 app.get("/", function(req, res) {
   Scraper.list(function(err, modules) {
-    console.log(modules);
     res.format({
       "text/html": function(){
         return res.render("application", {
