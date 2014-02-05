@@ -33,5 +33,5 @@
 	, "frisby": "vlucas/frisby"
 	, "sleek.js": "cubettech/sleekjs"
 	, "koa": "koajs/koa"
-	, "totaljs": "totaljs/framework"
+	, "total.js": "totaljs/framework"
 }

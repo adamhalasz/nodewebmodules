@@ -5,6 +5,7 @@ var
 	level = require('level'),
 	path = require('path'),
 	url = require('url'),
+	_ = require('lodash'),
 	GithubApi = require('github'),
 	deleteStream = require('level-delete-stream'),
 	modules = require('./modules.json'),
@@ -46,7 +47,7 @@ exports.start =  function() {
 						version: npmData.version,
 						site: ghData.homepage ? url.resolve('http://', ghData.homepage) : '',
 						created_at: moment(ghData.created_at).fromNow(),
-						author: npmData.author.name || npmData._npmUser.name,
+						author: npmData.author && npmData.author.name || npmData._npmUser.name,
 						forks: ghData.forks_count,
 						watchers: ghData.watchers,
 						issues: ghData.open_issues,
@@ -70,6 +71,7 @@ exports.list = function(callback) {
 		streamData.push(result);
 	});
 	stream.on('end', function(err) {
-		return callback(err, streamData);
+		var orderedData = _.sortBy(streamData, 'watchers').reverse();
+		return callback(err, orderedData);
 	});
 };
