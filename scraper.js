@@ -52,14 +52,16 @@ exports.start =  function() {
 };
 
 exports.list = function(callback) {
-	var streamData = [];
+	var modulesData = [];
 	var stream = db.createValueStream();
 	stream.on('data', function(result) {
-		streamData.push(result);
+		modulesData.push(result);
 	});
 	stream.on('end', function(err) {
-		var mostWatched = streamData.sort(function(a, b) { 
-			return a.watchers < b.watchers; 
+		var mostWatched = modulesData.sort(function(a, b) { 
+			if (a.watchers < b.watchers) return 1;
+	    if (a.watchers > b.watchers) return -1;
+	    return 0;
 		});
 		return callback(err, mostWatched);
 	});
