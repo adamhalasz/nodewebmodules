@@ -1,11 +1,8 @@
 const NPM = 'http://registry.npmjs.org/';
 var
 	request = require('request'),
-	moment = require('moment'),
 	level = require('level'),
-	path = require('path'),
-	url = require('url'),
-	_ = require('lodash'),
+	buildModule = require('./build_module'),
 	GithubApi = require('github'),
 	deleteStream = require('level-delete-stream'),
 	modules = require('./modules.json'),
@@ -18,12 +15,10 @@ exports.start =  function() {
 		dbKeyStream = db.createKeyStream()
 	;
 	
-	// clear all datas
 	console.log("Start Module Scrap");
 	dbKeyStream.pipe(deleteStream(db, function(err) {
 		if (err) { console.log('Error: %s', err); return; }
 
-		// scrap for new data	
 		Object.keys(modules).forEach(function(moduleName) {
 			var 
 				ghModuleName = modules[moduleName],
@@ -31,7 +26,7 @@ exports.start =  function() {
 				ghRepo = ghModuleName.split('/')[1],
 				npmModuleUrl = NPM + moduleName + '/latest'
 			;
-			// get github module data
+
 			github.repos.get({user: ghUser, repo: ghRepo}, function(err, ghData) {
 				if (err) { console.log('Error: %s', err); return; }		
 				console.log("GH %s: %j\n===============\n", ghModuleName, ghData);
@@ -40,27 +35,19 @@ exports.start =  function() {
 					if (err) { console.log('Error: %s', err); return; }
 					console.log("NPM %s: %j", npmModuleUrl, npmData);
 				
-					var key = "nvm_" + ghData.watchers;
-					var moduleData = {
-						name: npmData.name,
-						gh_url: ghData.html_url,
-						version: npmData.version,
-						site: ghData.homepage ? url.resolve('http://', ghData.homepage) : '',
-						created_at: moment(ghData.created_at).fromNow(),
-						author: npmData.author && npmData.author.name || npmData._npmUser.name,
-						forks: ghData.forks_count,
-						watchers: ghData.watchers,
-						issues: ghData.open_issues,
-						description: ghData.description
-					};
+					var moduleData = buildModule(ghData, npmData);
 
-					db.put(key, moduleData, function(err) {
+					db.put(npmData.name, moduleData, function(err) {
 						if (err) { console.log('Error: %s', err); return; }
 						console.log("\nModule Data: %j\n-------------\n", moduleData);
 					});				
+
 				});
+
 			});
+
 		});
+
 	}));
 };
 
@@ -71,7 +58,9 @@ exports.list = function(callback) {
 		streamData.push(result);
 	});
 	stream.on('end', function(err) {
-		var orderedData = _.sortBy(streamData, 'watchers').reverse();
-		return callback(err, orderedData);
+		var mostWatched = streamData.sort(function(a, b) { 
+			return a.watchers < b.watchers; 
+		});
+		return callback(err, mostWatched);
 	});
 };
