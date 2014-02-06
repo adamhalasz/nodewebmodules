@@ -5,7 +5,7 @@
 		<% include _metatags %>
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="/html5.min.js"></script>
 		<![endif]-->
 		<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
 		<link href="/application.css" rel="stylesheet">
@@ -20,7 +20,7 @@
 		<nav class="social">
 			<% include _share %>
 		</nav>
-		<main class="js-box-module">
+		<main data-module>
 			<p>
 				Do you wanna add your Node web module? <a href="https://github.com/caio-ribeiro-pereira/nodewebmodules/blob/master/README.md" target="_blank">Click here</a>.
 				<br>
@@ -32,6 +32,9 @@
 			<% include _book %>
 		</main>
 		<footer class="footer">
+			<nav class="social">
+				<% include _mysocial %>
+			</nav>
 			<p>
 				<strong>See also <a href="http://nodeframework.com" target="_blank" title="Node.js Frameworks" rel="coworker">nodeframework.com</a></strong>
 				<br>
@@ -43,10 +46,10 @@
 					This site is not formally related to or endorsed by the official Joyent commercial project.
 				</small>
 			</p>
-			<nav class="social">
-				<% include _mysocial %>
-			</nav>
 		</footer>
+		<a class="social__fork" href="https://github.com/caio-ribeiro-pereira/nodewebmodules/blob/master/README.md" target="_blank" title="See how to add your web module forking me!">
+			<img src="<%= site.fork_image %>" alt="See how to add your web module forking me!">
+		</a>
 		<% include _analytics %>
 		<script src="application.js"></script>
 	</body>

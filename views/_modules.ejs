@@ -1,9 +1,9 @@
 <% modules.forEach(function(repo, index) { %>
 	<section class="box">
-		<header class="box__header js-box-module-header">
+		<header class="box__header" data-module-header>
 			<h1><%=: repo.name | capitalize %></h1>
 		</header>
-		<div class="box__main js-box-module-main">
+		<div class="box__main" data-module-content>
 			<section class="box__content">
 				<figure class="box__figure">
 					<a href="<%= repo.site %>" target="_blank">
@@ -50,7 +50,7 @@
 					<a href="<%= repo.site %>" class="box__button" target="_blank">site</a>
 				<% } %>
 				<a href="<%= repo.gh_url %>" class="box__button" target="_blank">github</a>
-				<% if (repo.npm) { %>
+				<% if (repo.npm_url) { %>
 					<a href="<%= repo.npm_url %>" class="box__button" target="_blank">npm</a>
 				<% } %>
 			</aside>

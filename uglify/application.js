@@ -1,3 +1,3 @@
-Zepto(function($) {
-	new NBM.BoxModule($('.js-box-module'));
+window.addEventListener("load", function() {
+	new NWM.BoxModule(document.querySelector('[data-module]'));
 });

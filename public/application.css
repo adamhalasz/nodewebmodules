@@ -53,6 +53,7 @@ main{margin:0 auto;text-align:center;max-width:960px;padding:10px 0}
 .box__header:hover,.box__header:focus{color:#6d9415;cursor:pointer}
 .box__header h1{font-size:1.75em;text-align:left;margin-left:20px}
 .box__main{padding:20px;display:none}
+.box__main-highlight{display:block !important}
 .box__content{margin-bottom:10px;zoom:1}
 .box__content:before,.box__content:after{content:"";display:table}
 .box__content:after{clear:both}
@@ -69,6 +70,7 @@ main{margin:0 auto;text-align:center;max-width:960px;padding:10px 0}
 .social{text-align:center;margin:0 auto;display:block}
 .social a{text-decoration:none}
 .social__button{display:inline-block;margin:0 10px;width:80px}
+.social__fork{position:absolute;right:0;top:0;text-decoration:none}
 [class^="social__icon-"],[class*="social__icon-"]{display:inline-block;background:url("/images/social-icons.png") no-repeat;width:48px;height:48px;opacity:.5;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";filter:alpha(opacity=50)}
 [class^="social__icon-"]:hover,[class*="social__icon-"]:hover{opacity:1;-ms-filter:none;filter:none}
 .social__icon-linkedin{background-position:0 0}
