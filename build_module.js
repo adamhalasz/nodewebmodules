@@ -1,5 +1,4 @@
-var S = require('string')
-	, moment = require('moment')
+var moment = require('moment')
 	, url = require('url')
 ;
 
@@ -7,7 +6,6 @@ module.exports = function(gh, npm) {
 
 	var data = {};
 	data["name"] = npm.name;
-	data["title"] = S(npm.name).capitalize().s;
 	data["description"] = gh.description;
 	data["version"] = npm.version;
 	data["engine"] = npm.engines && npm.engines.node;

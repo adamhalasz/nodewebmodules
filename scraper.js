@@ -37,7 +37,7 @@ exports.start =  function() {
 				
 					var moduleData = buildModule(ghData, npmData);
 
-					db.put(npmData.name, moduleData, function(err) {
+					db.put(moduleName, moduleData, function(err) {
 						if (err) { console.log('Error: %s', err); return; }
 						console.log("\nModule Data: %j\n-------------\n", moduleData);
 					});				
