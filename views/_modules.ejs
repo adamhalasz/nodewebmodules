@@ -1,7 +1,7 @@
 <% modules.forEach(function(repo, index) { %>
 	<section class="box">
 		<header class="box__header js-box-module-header">
-			<h1><%=: repo.name | capitalize %></h1>
+			<h1><%= repo.title %></h1>
 		</header>
 		<div class="box__main js-box-module-main">
 			<section class="box__content">
@@ -21,6 +21,10 @@
 						<%= repo.version %>
 					</span>
 					<span>
+						<strong>Node compatibility: </strong>
+						<%= repo.engine %>
+					</span>
+					<span>
 						<strong>Watchers: </strong>
 						<%= repo.watchers %>
 					</span>
@@ -38,7 +42,7 @@
 					</span>
 					<span>
 						<strong>Install: </strong>
-						<span class="box__destaq">npm install <%= repo.name %></span>
+						<span class="box__destaq"><%= repo.install %></span>
 				</article>
 			</section>
 			<aside class="box__aside">
@@ -46,7 +50,9 @@
 					<a href="<%= repo.site %>" class="box__button" target="_blank">site</a>
 				<% } %>
 				<a href="<%= repo.gh_url %>" class="box__button" target="_blank">github</a>
-				<a href="https://npmjs.org/package/<%= repo.name %>" class="box__button" target="_blank">npm</a>
+				<% if (repo.npm) { %>
+					<a href="<%= repo.npm_url %>" class="box__button" target="_blank">npm</a>
+				<% } %>
 			</aside>
 		</div>
 	</section>
