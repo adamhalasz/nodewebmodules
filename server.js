@@ -1,5 +1,5 @@
 const 
-  PORT   = (process.env.OPENSHIFT_INTERNAL_PORT || 3000),
+  PORT   = (process.env.OPENSHIFT_NODEJS_PORT || 3000),
   IP     = (process.env.OPENSHIFT_NODEJS_IP || "localhost")
 ;
 var 
