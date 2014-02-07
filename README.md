@@ -26,7 +26,7 @@ Only web modules for node.js like MVC, Micro, Real-time and Rest frameworks will
 
 ## TODO
 
-* Create scaffold apps using each web module.
+* Create todo apps using each web module.
 
 ## About the author
 
