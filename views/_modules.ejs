@@ -12,18 +12,22 @@
 				</figure>
 				<article class="box__detail">
 					<span><%= repo.description %></span>
-					<span>
-						<strong>Author: </strong>
-						<a href="https://npmjs.org/~<%= repo.author %>" target="_blank"><%=: repo.author | capitalize %></a>
-					</span>
+					<% if (repo.author) {%>
+						<span>
+							<strong>Author: </strong>
+							<a href="https://npmjs.org/~<%= repo.author %>" target="_blank"><%=: repo.author | capitalize %></a>
+						</span>
+					<% } %>
 					<span>
 						<strong>Version: </strong>
 						<%= repo.version %>
 					</span>
-					<span>
-						<strong>Node compatibility: </strong>
-						<%= repo.engine %>
-					</span>
+					<% if (repo.engine) { %>
+						<span>
+							<strong>Node compatibility: </strong>
+							<%= repo.engine %>
+						</span>
+					<% } %>
 					<span>
 						<strong>Watchers: </strong>
 						<%= repo.watchers %>

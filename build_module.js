@@ -8,9 +8,9 @@ module.exports = function(gh, npm) {
 	data["name"] = npm.name;
 	data["description"] = gh.description;
 	data["version"] = npm.version;
-	data["engine"] = npm.engines && npm.engines.node || '--';
+	data["engine"] = npm.engines && npm.engines.node || '';
 	data["created_at"] = moment(gh.created_at).fromNow();
-	data["author"] = npm.author && npm.author.name || npm._npmUser.name;
+	data["author"] = npm.name !== "meteor" ? (npm.author && npm.author.name || npm._npmUser.name) : '';
 	data["forks"] = gh.forks_count;
 	data["watchers"] = gh.watchers;
 	data["issues"] = gh.open_issues;
