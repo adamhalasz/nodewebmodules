@@ -34,4 +34,5 @@
 	, "sleek.js": "cubettech/sleekjs"
 	, "koa": "koajs/koa"
 	, "total.js": "totaljs/framework"
+	, "mean": "linnovate/mean"
 }
