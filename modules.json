@@ -1,5 +1,5 @@
 {
-    "express": "visionmedia/express"
+    "express": "strongloop/express"
 	, "connect": "senchalabs/Connect"
 	, "compound": "1602/compound"
 	, "derby": "codeparty/derby"
