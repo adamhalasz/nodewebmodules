@@ -11,8 +11,8 @@
     "url": "http://nodewebmodules.com"
   },
   "engines": {
-    "node": "0.10.15",
-    "npm": "1.3.24"
+    "node": "0.10.32",
+    "npm": "1.4.28"
   },
   "dependencies": {
     "express": "3.4.8",
