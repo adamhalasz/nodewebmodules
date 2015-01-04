@@ -11,6 +11,7 @@
 	, "matador": "obvious/matador"
 	, "partial.js": "petersirka/partial.js"
 	, "sails": "balderdashy/sails"
+	, "meanjs": "meanjs/mean"
 	, "socketstream": "socketstream/socketstream"
 	, "spludo": "DracoBlue/spludo"
 	, "strata": "mjijackson/strata"
