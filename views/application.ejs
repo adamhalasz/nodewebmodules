@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#">
+<html manifest="/manifest.appcache" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#">
 	<head>
 		<title><%= site.subtitle %> - <%= site.title %></title>
 		<% include _metatags %>
@@ -20,19 +20,18 @@
 		<nav class="social">
 			<% include _share %>
 		</nav>
-		<% include _ads %>
 		<main data-module>
 			<p>
 				Do you wanna add your Node web module? <a href="https://github.com/caio-ribeiro-pereira/nodewebmodules/blob/master/README.md" target="_blank">Click here</a>.
 				<br>
 				Only <a href="https://github.com/joyent/node/wiki/modules#wiki-web-frameworks-full" target="_blank">mvc</a>, <a href="https://github.com/joyent/node/wiki/modules#wiki-web-frameworks-micro" target="_blank">micro</a>, <a href="https://github.com/joyent/node/wiki/modules#wiki-web-frameworks-routers" target="_blank">router</a>, <a href="https://github.com/joyent/node/wiki/modules#wiki-web-frameworks-static" target="_blank">static</a> and <a href="https://github.com/joyent/node/wiki/modules#wiki-ws-ajax" target="_blank">real-time</a> modules are here.
 			</p>
+			<% include _ads %>
 			<p><strong>Most watched modules</strong></p>
 			<% include _modules %>
 			<br>
 			<% include _book %>
 		</main>
-		<script src="application.js"></script>
 		<footer class="footer">
 			<nav class="social">
 				<% include _mysocial %>
@@ -50,5 +49,6 @@
 			</p>
 		</footer>
 		<% include _analytics %>
+		<script async defer src="application.js"></script>
 	</body>
 </html>

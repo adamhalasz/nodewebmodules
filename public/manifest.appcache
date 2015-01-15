@@ -1,0 +1,12 @@
+CACHE MANIFEST
+
+# Update 2015-01-15
+
+CACHE:
+/favicon.ico
+/application.css
+/application.js
+/images/*
+
+NETWORK:
+*

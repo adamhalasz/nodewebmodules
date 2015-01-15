@@ -11,8 +11,8 @@ var
   app = module.exports = express()
 ;
 
-//Scraper.start();
-//Cron.start();
+Scraper.start();
+Cron.start();
 
 app.use(express.logger());
 app.set("views", "./views");

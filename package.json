@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Node Web Modules is a collection of web frameworks for Node.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node_modules/.bin/grunt && node server.js"
   },
   "author": {
     "name": "Caio Ribeiro Pereira",
@@ -15,15 +15,16 @@
     "npm": "1.4.28"
   },
   "dependencies": {
-    "express": "3.4.8",
-    "request": "2.27.0",
-    "ejs": "0.8.5",
     "cron": "1.0.3",
-    "moment": "2.3.1",
+    "ejs": "0.8.5",
+    "express": "3.4.8",
     "github": "0.1.12",
-    "newrelic": "1.2.0",
+    "grunt-cli": "^0.1.13",
     "level": "0.18.0",
-    "level-delete-stream": "0.0.1"
+    "level-delete-stream": "0.0.1",
+    "moment": "2.3.1",
+    "newrelic": "1.2.0",
+    "request": "2.27.0"
   },
   "devDependencies": {
     "grunt-contrib-concat": "0.3.0",

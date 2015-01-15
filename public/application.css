@@ -67,8 +67,9 @@ main{margin:0 auto;text-align:center;max-width:960px;padding:10px 0}
 }.box__aside{text-align:right}
 .box__button{font-size:1em;background:#690;color:#fff;text-align:center;padding:15px;margin-left:10px;border:1px solid #3b3c37;display:inline-block;text-decoration:none}
 .box__button:hover{text-decoration:underline;color:#fff}
-.carbon_ads{width:175px;font-size:12px;background:#efefef;padding:5px 15px;position:absolute;top:0;right:0}
-.carbon_ads a{text-decoration:none;float:left}
+.carbon_ads{width:90%;height:120px;font-size:12px;padding:5px 15px;display:block;margin:0 auto}
+.carbon_ads a{text-decoration:none;display:block}
+.carbon_ads .carbon-poweredby{font-weight:bold}
 .share{margin:0 auto;width:25%}
 .share .facebook{padding-top:-20px}
 .share .twitter,.share .gplus{padding-top:8px}
