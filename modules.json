@@ -1,6 +1,7 @@
 {
     "express": "strongloop/express"
 	, "connect": "senchalabs/Connect"
+	, "TWEE.IO": "tweeio/twee-framework"
 	, "compound": "1602/compound"
 	, "derby": "codeparty/derby"
 	, "flatiron": "flatiron/flatiron"
