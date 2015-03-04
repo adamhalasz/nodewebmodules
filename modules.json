@@ -12,6 +12,7 @@
 	, "matador": "obvious/matador"
 	, "partial.js": "petersirka/partial.js"
 	, "sails": "balderdashy/sails"
+	, "sane": "artificialio/sane"
   , "raddish": "JaspervRijbroek/raddish"
 	, "generator-meanjs": "meanjs/mean"
 	, "socketstream": "socketstream/socketstream"
