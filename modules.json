@@ -39,4 +39,5 @@
 	, "koa": "koajs/koa"
 	, "total.js": "totaljs/framework"
 	, "mean": "linnovate/mean"
+	, "diet": "adamhalasz/diet"
 }
